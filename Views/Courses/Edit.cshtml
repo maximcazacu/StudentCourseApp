@@ -1,0 +1,36 @@
+﻿@model StudentCourseApp.Models.Course
+
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<h1>Edit Course</h1>
+
+<form asp-action="Edit" method="post">
+    <label asp-for="Title"></label>
+    <input asp-for="Title" class="form-control" />
+    <label asp-for="Credits"></label>
+    <input asp-for="Credits" class="form-control" />
+    <label asp-for="TeacherID"></label>
+    <select asp-for="TeacherID" asp-items="ViewBag.TeacherID"></select>
+    <input type="hidden" asp-for="ID" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Credits" class="control-label"></label>
+        <input asp-for="Credits" class="form-control" type="number" />
+        <span asp-validation-for="Credits" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TeacherID" class="control-label"></label>
+        <select asp-for="TeacherID" asp-items="ViewBag.TeacherID" class="form-control"></select>
+        <span asp-validation-for="TeacherID" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-2">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
